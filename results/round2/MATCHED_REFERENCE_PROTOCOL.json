@@ -1,0 +1,16 @@
+{
+  "locked": "2026-11-03T05:35:16.974275+00:00",
+  "reason": "Place the original base, two already training-fitted fixed scales and original DP-RHR on the identical original-FP32 reference grid used by new head-only runs. Keep historical cached tables unchanged.",
+  "script_sha256": "3568ccb07d304aeefa8bea23e9387de1c2faaf5db794aa865454a0f4285c64c3",
+  "anchor_sha256": "9698ed7159e03ea9b0b0422381ddc0299f166fa4f98e4882ac376a426fd21f31",
+  "scales": {
+    "LogLS": 0.16490098480565277,
+    "MetricLS": 0.15810321166638114
+  },
+  "scale_source": "protocol_p1_20261030_125237_fit/FIT.json; coefficients retained without refitting",
+  "samples": 750,
+  "prediction_cap_m": 30,
+  "reference": "original FP32 nearest to 518x518; finite inclusive [0.3,30] m; GT-only support",
+  "new_training_or_fitting": false,
+  "backend": "FP32, TF32 off; PIL bilinear square; original native model output max80"
+}

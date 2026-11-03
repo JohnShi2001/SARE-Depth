@@ -1,0 +1,3 @@
+sample_id,source_bag,timestamp_rgb,timestamp_depth,image_path,depth_path,split
+02_13B_Jackal_zed_2023_07_18_14_58_05_14_000217,zed_2023-07-18-14-58-05_14.bag,1689717506.8815737,1689717506.8815737,images_v2/02_13B_Jackal_zed_2023_07_18_14_58_05_14_000217.png,depths_v2/02_13B_Jackal_zed_2023_07_18_14_58_05_14_000217.npy,test
+02_13B_Jackal_zed_2023_07_18_14_58_05_14_000218,zed_2023-07-18-14-58-05_14.bag,1689717506.9814436,1689717506.9814436,images_v2/02_13B_Jackal_zed_2023_07_18_14_58_05_14_000218.png,depths_v2/02_13B_Jackal_zed_2023_07_18_14_58_05_14_000218.npy,test

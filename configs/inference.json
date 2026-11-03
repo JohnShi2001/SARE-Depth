@@ -1,0 +1,8 @@
+{
+  "model": "SARE-Depth, historical CitrusFarm deployment snapshot",
+  "input": {"size_hw": [518,518], "channels": "RGB", "resize": "Pillow bilinear", "range": [0,1], "mean": [0.485,0.456,0.406], "std": [0.229,0.224,0.225]},
+  "base": {"encoder":"vits", "features":64, "out_channels":[48,96,192,384], "max_depth_m":80},
+  "dp_rhr": {"hidden_dim":96, "alpha":0.3, "beta_max":2.0, "max_depth_m":80},
+  "re": {"experts":4, "alpha":0.2, "temperature":0.35, "centres":"loaded from each checkpoint", "routing":"fixed parameters, depth-dependent per-pixel weights", "mixture":"weighted raw residuals, then tanh", "max_depth_m":30},
+  "evaluation": {"reference_grid_hw":[518,518],"reference_resize":"nearest", "reference_range_m":[0.3,30], "cap_m":30, "mask":"finite GT in inclusive range", "invalid_prediction":"fail; never drop prediction-dependent pixels", "aggregation":"pooled valid pixels", "units":"metres"}
+}

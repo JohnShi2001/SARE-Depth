@@ -1,0 +1,12 @@
+{
+  "status": "COMPLETE",
+  "seed": 20260711,
+  "epochs": 1,
+  "updates": 875,
+  "best_uncapped_val_AbsRel": 0.22462367094011965,
+  "wall_seconds": 107.06430534896208,
+  "frozen_sha256_after": "52c929b02b382cf63de95aead3484eccd95551dd8cffd5fcf4b17c1f958ae5b1",
+  "frozen_unchanged": true,
+  "head_checkpoint_sha256": "bec6913441c215e82837e959842d8f6c4609b45e5ea08026d8a3d3bc7706f074",
+  "parameters_updated": 2728513
+}

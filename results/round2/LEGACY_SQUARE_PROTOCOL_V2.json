@@ -1,0 +1,23 @@
+{
+  "status": "LOCKED_BEFORE_RUN",
+  "supersedes_failed_path_attempt": "legacy_square_control.py, no predictions produced",
+  "source": "teacher_review_phase_T2C/03_scripts/baseline_adapters/common.py:to_square_518_bgr and dav2_adapter.py:_forward_square",
+  "input": "original BGR -> OpenCV INTER_AREA 518 square -> RGB float32 -> ImageNet mean/std",
+  "reference_readouts": [
+    "original FP32 GT grid",
+    "V41 regenerated FP16 GT plus saved validity mask"
+  ],
+  "cache_role": "V41 regenerated cache, not the original T2C evaluation artifact",
+  "cache_hashes": {
+    "gt.npy": "023415fba3fe4f26837499398321330db082359d003bbbe79c4324cd2d580ad4",
+    "valid.npy": "e390ed1edae8973778f77b35d6be4636541f8a7214d53044dcd9e18e5ae08433",
+    "rows.csv": "230b9b294a9f2e3403e7aa1bae66b5fc4bb4af49612d017a354e812e68694041"
+  },
+  "cache_path": "$ORIGINAL_RESEARCH_ROOT/revision_v41/citrus_test_cache_locked_20261030_v41",
+  "backend": "PyTorch FP32, TF32 disabled",
+  "weights": "9203e538d35255c90dda4b7fedb47ff33fe725497bcca3b1e53b3a65ee63f0cb",
+  "test_scale_alignment": false,
+  "samples": 750,
+  "runner_sha256": "76954a8b5379eec06b45c00c7616c3a0947ce0a7de411d574937ce63799fe45f",
+  "locked": "2026-11-03T05:34:36.698703+00:00"
+}

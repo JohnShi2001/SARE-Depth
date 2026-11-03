@@ -1,0 +1,92 @@
+{
+  "protocol": {
+    "locked": "2026-11-03T05:35:16.974275+00:00",
+    "reason": "Place the original base, two already training-fitted fixed scales and original DP-RHR on the identical original-FP32 reference grid used by new head-only runs. Keep historical cached tables unchanged.",
+    "script_sha256": "3568ccb07d304aeefa8bea23e9387de1c2faaf5db794aa865454a0f4285c64c3",
+    "anchor_sha256": "9698ed7159e03ea9b0b0422381ddc0299f166fa4f98e4882ac376a426fd21f31",
+    "scales": {
+      "LogLS": 0.16490098480565277,
+      "MetricLS": 0.15810321166638114
+    },
+    "scale_source": "protocol_p1_20261030_125237_fit/FIT.json; coefficients retained without refitting",
+    "samples": 750,
+    "prediction_cap_m": 30,
+    "reference": "original FP32 nearest to 518x518; finite inclusive [0.3,30] m; GT-only support",
+    "new_training_or_fitting": false,
+    "backend": "FP32, TF32 off; PIL bilinear square; original native model output max80"
+  },
+  "missing": [],
+  "unexpected": [],
+  "groups": {
+    "base": {
+      "images": 750,
+      "valid_pixels": 89648722,
+      "AbsRel": 4.782336142877611,
+      "RMSE": 11.193665262998998,
+      "MAE": 9.773305501255466,
+      "delta1": 0.016117653077084577,
+      "uncapped_AbsRel": 5.623025791164808,
+      "uncapped_RMSE": 18.219286056993397,
+      "uncapped_MAE": 12.165481820316803,
+      "uncapped_delta1": 0.016117653077084577,
+      "cap_hit_fraction": 0.08720408752731579,
+      "invalid_predictions": 0,
+      "mean_image_median_raw_pred_gt_ratio": 5.247155848630843,
+      "mean_image_median_raw_log_ratio": 1.5995922146807677,
+      "raw_prediction_max": 80.0
+    },
+    "LogLS": {
+      "images": 750,
+      "valid_pixels": 89648722,
+      "AbsRel": 0.4868202532457841,
+      "RMSE": 3.524223414701052,
+      "MAE": 1.7538282662371618,
+      "delta1": 0.3096905832076446,
+      "uncapped_AbsRel": 0.4868202532457841,
+      "uncapped_RMSE": 3.524223414701052,
+      "uncapped_MAE": 1.7538282662371618,
+      "uncapped_delta1": 0.3096905832076446,
+      "cap_hit_fraction": 0.0,
+      "invalid_predictions": 0,
+      "mean_image_median_raw_pred_gt_ratio": 0.8652611850948682,
+      "mean_image_median_raw_log_ratio": -0.20281784130436434,
+      "raw_prediction_max": 13.192079544067383
+    },
+    "MetricLS": {
+      "images": 750,
+      "valid_pixels": 89648722,
+      "AbsRel": 0.4757833862508919,
+      "RMSE": 3.5430123164990253,
+      "MAE": 1.7886105527447993,
+      "delta1": 0.3115059018911614,
+      "uncapped_AbsRel": 0.4757833862508919,
+      "uncapped_RMSE": 3.5430123164990253,
+      "uncapped_MAE": 1.7886105527447993,
+      "uncapped_delta1": 0.3115059018911614,
+      "cap_hit_fraction": 0.0,
+      "invalid_predictions": 0,
+      "mean_image_median_raw_pred_gt_ratio": 0.8295921975416841,
+      "mean_image_median_raw_log_ratio": -0.2449149985576833,
+      "raw_prediction_max": 12.6482572555542
+    },
+    "DP-RHR": {
+      "images": 750,
+      "valid_pixels": 89648722,
+      "AbsRel": 0.32520889461683977,
+      "RMSE": 3.138179060752107,
+      "MAE": 1.3615852564611057,
+      "delta1": 0.6731397576420554,
+      "uncapped_AbsRel": 0.32520889461683977,
+      "uncapped_RMSE": 3.138179060752107,
+      "uncapped_MAE": 1.3615852564611057,
+      "uncapped_delta1": 0.6731397576420554,
+      "cap_hit_fraction": 0.0,
+      "invalid_predictions": 0,
+      "mean_image_median_raw_pred_gt_ratio": 0.9145592347190563,
+      "mean_image_median_raw_log_ratio": -0.12684171230796515,
+      "raw_prediction_max": 21.5655460357666
+    }
+  },
+  "seconds": 36.729392595996615,
+  "finished": "2026-11-03T05:35:54.130385+00:00"
+}

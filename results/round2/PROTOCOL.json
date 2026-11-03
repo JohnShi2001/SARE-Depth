@@ -1,0 +1,57 @@
+{
+  "created_utc": "2026-11-03T02:39:53.029129+00:00",
+  "runner_sha256": "6152736c3d7b39bbf44c467d9e68b59227e1b00aa26b37756ce6e22fd36802a1",
+  "weights": {
+    "base": "5119de576c38ee28f91a4eed68b6ef482ea884573ff110e9b94a42975badbac8",
+    "public": "9203e538d35255c90dda4b7fedb47ff33fe725497bcca3b1e53b3a65ee63f0cb"
+  },
+  "manifests": {
+    "train": {
+      "path": "$ORIGINAL_RESEARCH_ROOT/data/public_agri/citrusfarm_adapter_subset_20260610_100033/citrusfarm_train_v2.csv",
+      "sha256": "985a81439dc3dbba4d4a295b2e051321ed42fdbe575d8af97c3b57efda558508",
+      "rows": 3500
+    },
+    "val": {
+      "path": "$ORIGINAL_RESEARCH_ROOT/data/public_agri/citrusfarm_adapter_subset_20260610_100033/citrusfarm_val_v2.csv",
+      "sha256": "2158c7001aa878e5c612ae7442c292daaf83140d11ed024d9a34bc6ff95b8d51",
+      "rows": 750
+    },
+    "test": {
+      "path": "$ORIGINAL_RESEARCH_ROOT/data/public_agri/citrusfarm_adapter_subset_20260610_100033/citrusfarm_test_v2.csv",
+      "sha256": "6c6f0f45ed14badca51fdfe4732fc0f1ab3b7d2026c97988389b7afdc5f27c90",
+      "rows": 750
+    }
+  },
+  "precision": "FP32; TF32 disabled for matmul and cuDNN",
+  "grid": "518x518 reference, nearest resampling of original depth, identical GT-only finite support inclusive [0.3,30] m",
+  "square": "PIL RGB bilinear 518x518; ImageNet normalization",
+  "aspect_preserving": "original BGR image through historical DAV2 image2tensor, cubic lower_bound, multiple14; normalized RGB; bilinear output resize align_corners=True to common518 grid",
+  "evaluation": "pixel-pooled AbsRel/RMSE/MAE/delta1 with common prediction clamp[1e-6,30]; uncapped metrics also retained",
+  "scale": "arithmetic mean over images of each valid-GT-support median raw pred/GT and median raw log-ratio, before cap",
+  "invalid": "fail run on any nonfinite/nonpositive prediction on fixed GT support; do not discard prediction-dependent pixels",
+  "head_only": {
+    "module": "full original depth_head (DPTHead), encoder and focal auxiliary frozen/eval",
+    "epochs": 30,
+    "batch_size": 4,
+    "updates_per_epoch": 875,
+    "updates_per_run": 26250,
+    "seeds": [
+      20260711,
+      20260712,
+      20260713
+    ],
+    "optimizer": "AdamW",
+    "lr_candidates": [
+      0.0001,
+      1e-05
+    ],
+    "lr_selection": "one epoch per candidate, seed20260711, lowest full-validation uncapped pooledAbsRel; fresh initial checkpoint for every pilot and formal run",
+    "weight_decay": 0.0001,
+    "scheduler": null,
+    "loss": "mean absolute log-depth + 0.1 * metric MAE; no adapter-specific regularizers",
+    "selection": "minimum uncapped validation pooledAbsRel; first epoch wins exact ties",
+    "augmentations": "none, matching historical DP-RHR dataset",
+    "historical_DP_RHR": "30epochs,batch4,AdamW1e-4,wd1e-4,AbsRel validation selection; 3500train/750val; full precision new head forward versus historical runtime as documented",
+    "timing": "new wall-time reported separately, not matched inference backend to TensorRT"
+  }
+}

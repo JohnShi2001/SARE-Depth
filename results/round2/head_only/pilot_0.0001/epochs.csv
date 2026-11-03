@@ -1,0 +1,2 @@
+epoch,steps,mean_loss,images,valid_pixels,AbsRel,RMSE,MAE,delta1,uncapped_AbsRel,uncapped_RMSE,uncapped_MAE,uncapped_delta1,cap_hit_fraction,invalid_predictions,mean_image_median_raw_pred_gt_ratio,mean_image_median_raw_log_ratio,raw_prediction_max,seconds,mode,split,input_shapes
+1,875,0.2771602397135326,750,84139578,0.22462367094011965,2.0182033885889803,0.9662156857161329,0.6625635916548096,0.22462367094011965,2.0182033885889803,0.9662156857161329,0.6625635916548096,0.0,0,0.9613589515703104,-0.04404310000566454,22.49335479736328,30.204788420989644,square,val,"[(518, 518)]"

@@ -1,0 +1,43 @@
+{
+  "executed_source_sha256": "6152736c3d7b39bbf44c467d9e68b59227e1b00aa26b37756ce6e22fd36802a1",
+  "portable_sha256": "34e617f143efdbfd1f2b7c75ad6f804970fd34eb6dd6373ac50cca6adb7b6ffa",
+  "changes": [
+    {
+      "original_role": "ROOT",
+      "portable_expression": "ROOT=Path(__file__).resolve().parents[1]"
+    },
+    {
+      "original_role": "OUT",
+      "portable_expression": "OUT=Path(os.environ.get('SARE_EXPERIMENT_OUTPUT', str(ROOT/'outputs/round2'))).resolve()"
+    },
+    {
+      "original_role": "checkpoint/container/path expression",
+      "portable_expression": "sys.path.insert(0,str(ROOT/'vendor'))"
+    },
+    {
+      "original_role": "BASE",
+      "portable_expression": "BASE=ROOT/'weights/stage1_base.pth'"
+    },
+    {
+      "original_role": "PUBLIC",
+      "portable_expression": "PUBLIC=Path(os.environ.get('SARE_PUBLIC_WEIGHT', str(ROOT/'weights/depth_anything_v2_metric_vkitti_vits.pth')))"
+    },
+    {
+      "original_role": "DATA",
+      "portable_expression": "DATA=Path(os.environ.get('SARE_DATA_ROOT', str(ROOT/'example_data'))).resolve()"
+    },
+    {
+      "original_role": "checkpoint/container/path expression",
+      "portable_expression": "'base':'11711dc7f4ef52b24b4c52a01c4d168b76f41a7a22b463579ede31788531e8e1'"
+    },
+    {
+      "original_role": "checkpoint/container/path expression",
+      "portable_expression": "def manifest(split):return ROOT/'manifests'/f'citrusfarm_{split}.csv'"
+    },
+    {
+      "original_role": "if kind",
+      "portable_expression": "if kind=='base':assert float(config.get('max_depth',80))==80"
+    }
+  ],
+  "scope": "Paths, relative manifests, the verified tensor-only base container, and a fail-closed existing-output guard before head-test evaluation. Numerical forward, losses, training, selection and metrics unchanged."
+}

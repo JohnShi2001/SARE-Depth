@@ -1,0 +1,26 @@
+{
+  "images": 750,
+  "valid_pixels": 89648722,
+  "AbsRel": 4.656769503534587,
+  "RMSE": 10.848925409396918,
+  "MAE": 9.476846332792126,
+  "delta1": 0.016416820755124652,
+  "uncapped_AbsRel": 5.479344000535457,
+  "uncapped_RMSE": 17.715489864303404,
+  "uncapped_MAE": 11.70081221326036,
+  "uncapped_delta1": 0.016416820755124652,
+  "cap_hit_fraction": 0.07948887436454476,
+  "invalid_predictions": 0,
+  "mean_image_median_raw_pred_gt_ratio": 5.0728902410789845,
+  "mean_image_median_raw_log_ratio": 1.5602200671674613,
+  "raw_prediction_max": 80.0,
+  "seconds": 66.58279385598144,
+  "mode": "aspect_preserving",
+  "split": "test",
+  "input_shapes": [
+    [
+      518,
+      924
+    ]
+  ]
+}

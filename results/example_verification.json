@@ -1,0 +1,88 @@
+{
+  "status": "PASS",
+  "independent_directory_public_files_only": true,
+  "example_metrics": {
+    "protocol": "FP32; common cap30; GT-only finite [0.3,30] support; pixel pooled",
+    "device": "cpu",
+    "seed": 20260711,
+    "metrics": {
+      "base": {
+        "images": 2,
+        "valid_pixels": 207102,
+        "AbsRel": 8.535118624463069,
+        "RMSE_m": 14.276890437222775,
+        "MAE_m": 12.44159348408289,
+        "log10": 0.8640754374402504,
+        "delta1": 0.0,
+        "delta2": 0.0011878204942492106,
+        "delta3": 0.011516064547903932,
+        "above_cap_pixels": 35817
+      },
+      "anchor": {
+        "images": 2,
+        "valid_pixels": 207102,
+        "AbsRel": 1.0372774710261772,
+        "RMSE_m": 2.342641422019753,
+        "MAE_m": 1.0072681816598728,
+        "log10": 0.11901821552729445,
+        "delta1": 0.7299688076406795,
+        "delta2": 0.9152929474365289,
+        "delta3": 0.9326225724522216,
+        "above_cap_pixels": 0
+      },
+      "final": {
+        "images": 2,
+        "valid_pixels": 207102,
+        "AbsRel": 0.9483469888006575,
+        "RMSE_m": 2.1564279831326707,
+        "MAE_m": 0.9498424134845108,
+        "log10": 0.11676515514035402,
+        "delta1": 0.7410454751764831,
+        "delta2": 0.914848721885834,
+        "delta3": 0.9323859740610907,
+        "above_cap_pixels": 0
+      }
+    }
+  },
+  "tensor_container_conversion_and_assembly_equivalence": [
+    {
+      "sample_id": "02_13B_Jackal_zed_2023_07_18_14_58_05_14_000217",
+      "output": "base",
+      "max_absolute_difference_m": 0.0
+    },
+    {
+      "sample_id": "02_13B_Jackal_zed_2023_07_18_14_58_05_14_000217",
+      "output": "anchor",
+      "max_absolute_difference_m": 0.0
+    },
+    {
+      "sample_id": "02_13B_Jackal_zed_2023_07_18_14_58_05_14_000217",
+      "output": "final",
+      "max_absolute_difference_m": 0.0
+    },
+    {
+      "sample_id": "02_13B_Jackal_zed_2023_07_18_14_58_05_14_000218",
+      "output": "base",
+      "max_absolute_difference_m": 0.0
+    },
+    {
+      "sample_id": "02_13B_Jackal_zed_2023_07_18_14_58_05_14_000218",
+      "output": "anchor",
+      "max_absolute_difference_m": 0.0
+    },
+    {
+      "sample_id": "02_13B_Jackal_zed_2023_07_18_14_58_05_14_000218",
+      "output": "final",
+      "max_absolute_difference_m": 0.0
+    }
+  ],
+  "versions": {
+    "torch": "2.5.1+cu124",
+    "torchvision": "0.20.1+cu124",
+    "numpy": "1.26.4",
+    "Pillow": "10.4.0",
+    "opencv-python": "4.10.0.84"
+  },
+  "device": "CPU",
+  "training_or_GPU_timing_performed": false
+}

@@ -1,43 +1,69 @@
 # SARE-Depth
 
-**Scale Adaptation and Range Experts for monocular metric-depth estimation**
+Research code for **Monocular Metric-Depth Adaptation for Agricultural Perception: A CitrusFarm Case Study with Embedded Inference**.
 
-## Release status / 发布状态
+SARE-Depth keeps a teacher-guided Depth Anything V2 Small depth path frozen. DP-RHR learns image-level scale and gated local corrections. Four feature residuals then refine the frozen anchor through fixed depth-conditioned routing.
 
-**Research materials are being prepared for upload. All materials will be reviewed and approved by the author before they are made public.**
+## Release contents
 
-This initial repository contains project information and this release notice only. The study-specific code, configuration files, evaluation scripts, and trained weights have not yet been uploaded. The author will determine the scope and timing of subsequent uploads after review.
+The `r2-20261103` research release contains the retained Stage-I checkpoint, the CitrusFarm DP-RHR adapter, three historical CitrusFarm RE checkpoints, three Round-2 complete metric-depth heads, inference and evaluation code, model configuration, and relative train/validation/test manifests. Weight files are Release assets, verified by size and SHA-256 using `configs/weights.json`.
 
-**相关资料正在整理并准备上传，须经作者审核后方可公开。**
+The supplied Stage-I checkpoint is the study's trained base, not the public DAV2 initializer. The historical RE checkpoints correspond to the original three-run cohort. The later matched single-head experiment is a separate cohort.
 
-当前仓库仅提供项目介绍和发布状态说明。研究代码、配置文件、评价脚本及训练权重尚未上传。后续公开内容与上传时间由作者审核后确定。
+## Quick start
 
-## Associated manuscript / 对应论文
+Tested environment: Python 3.11, PyTorch 2.5.1, torchvision 0.20.1, NumPy 1.26.4, Pillow 10.4.0 and OpenCV 4.10.0.84. CPU execution is sufficient for the included example. A compatible PyTorch installation must be selected for the reader's device; CUDA execution in the recorded experiments used CUDA 12.4.
 
-**Monocular Metric-Depth Adaptation for Agricultural Perception: A CitrusFarm Case Study with Embedded Inference**
+```bash
+python -m venv .venv
+# Activate this environment using the command appropriate for your shell.
+python -m pip install -r requirements.txt
+python download_weights.py
+python evaluate.py --device cpu --output outputs/example
+python check_example.py outputs/example/summary.json
+```
 
-**Authors:** Zhuoyu Shi, Sen Yang, and Xiangzhou Li  
-**Affiliation:** Gansu Agricultural University, Lanzhou, China
+The two included RGB/depth pairs are actual CitrusFarm test samples. Their source names, recording files and timestamps are preserved in `manifests/example.csv`. `results/example_cpu_expected.json` records their measured CPU outputs. On the verified CPU environment, the distributed tensor-only weights and historical checkpoint containers produced identical base, anchor and final depth tensors for both samples. The example is a functional check, not an estimate of test-set performance.
 
-## Research overview / 研究概述
+Single-image inference produces an NPZ with `base`, `anchor` and `final` predictions on the 518 by 518 grid:
 
-SARE-Depth investigates parameter-efficient, supervised output-side adaptation of a compact teacher-guided monocular metric-depth predictor. The framework combines global-scale and local-residual correction with subsequent depth-conditioned residual refinement.
+```bash
+python infer.py example_data/images_v2/02_13B_Jackal_zed_2023_07_18_14_58_05_14_000217.png --output outputs/prediction.npz
+```
 
-The study includes quantitative depth evaluation using public datasets, including CitrusFarm, and embedded-inference measurements on Jetson Orin NX. Separately collected agricultural-field images are used for exploratory observations. Headland detection is an intended downstream application, not a complete detection or vehicle-control system evaluated in this study.
+Use `python download_weights.py --all-seeds` to fetch all historical RE heads. The final stage is changed with `evaluate.py --seed 20260712` or `--seed 20260713`.
 
-SARE-Depth 研究紧凑单目度量深度模型的参数高效监督适配，通过全局尺度与局部残差校正，以及后续距离条件残差细化调整模型输出。研究包含公共数据集上的深度评价和 Jetson Orin NX 嵌入式推理测量。作者自采农田图像用于探索性观察；地头检测为下游应用目标，不代表本文已完成完整检测或车辆控制系统验证。
+The separately fine-tuned complete metric-depth head uses the same frozen base encoder:
 
-## Materials planned for review / 拟审核资料
+```bash
+python download_weights.py --include-heads
+python evaluate.py --head-only --seed 20260711 --device cpu --output outputs/head_example
+```
 
-Subject to author review, subsequent updates may include:
+The `--seed` option selects one of the three retained head checkpoints. Evaluation performs no training or scale fitting.
 
-- Study-specific implementation and experiment configurations.
-- Inference, preprocessing, and evaluation scripts.
-- Checkpoint information and approved trained weights.
-- Dataset access instructions and experiment-to-result mappings.
+## Data and evaluation
 
-拟审核内容包括本研究实现与实验配置、推理及评价脚本、模型权重，以及数据获取和实验结果对应说明。上述为拟整理范围，不表示这些文件目前已经可以获取。
+See [DATA.md](DATA.md) for the official source and the relative file layout. The complete manifests contain 3,500 training, 750 validation and 750 internal-test members. Source-bag membership is retained, including the original overlap across partitions. Full public source data are obtained from the original provider; this repository includes only two attributed examples.
 
-Third-party datasets and software remain subject to their original licenses and access conditions. Any future release will identify the applicable dependencies and permissions.
+```bash
+python evaluate.py --manifest manifests/citrusfarm_test.csv --data-root /path/to/prepared_citrusfarm --device cuda --output outputs/full_test
+```
 
-第三方数据与软件遵循原始许可及获取条件。后续发布将说明相关依赖与许可要求。
+The released evaluator uses FP32 original reference arrays, a fixed GT-defined finite support in [0.3, 30] metres, common cap30 and pooled-pixel metrics. Non-finite or non-positive predictions on that fixed support cause an error. Historical tables also contain FP16 cached-reference evaluations and uncapped model readouts. Match the protocol and checkpoint cohort when comparing a number with the manuscript.
+
+## Reproduction scope
+
+The release fixes the retained model and its forward computation, sample membership, preprocessing and evaluation. The original teacher-cache geometry and full continuation-training lineage remain incompletely documented. Starting from the retained base is the reproducible entry point for the released adaptation controls. This package does not include the teacher checkpoint, every historical fold model, or Jetson engines.
+
+Round-2 preprocessing and complete metric-head controls are documented in `experiments/` with their locked settings and recorded results. These controls are distinct from the historical RE cohort. See [REPRODUCTION.md](REPRODUCTION.md) for exact commands and verification scope.
+
+## Attribution and terms
+
+Depth Anything V2 Small and vendored dependencies retain their original notices; see `licenses/DepthAnythingV2_LICENSE` and source headers. The original Depth Pro license is included as a provenance reference for the offline teacher. Depth Pro software or weights are not distributed here.
+
+The two CitrusFarm examples are attributed to Hanzhe Teng, Yipeng Wang, Xiaoao Song and Konstantinos Karydis, *Multimodal Dataset for Localization, Mapping and Crop Monitoring in Citrus Tree Farms*, ISVC 2023. The dataset is [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The examples are extracted RGB PNGs and registered depth arrays in metres, with source identities retained. These extracted data remain CC BY-SA 4.0. See [DATA.md](DATA.md).
+
+Study-specific code and checkpoint files are provided for inspection and reproduction. A repository-wide license has not been assigned; third-party materials retain their respective terms. No license for third-party data is superseded by this release.
+
+Correspondence: Zhuoyu Shi, 1073324020194@st.gsau.edu.cn.

@@ -1,0 +1,69 @@
+{
+  "protocol": {
+    "status": "LOCKED_BEFORE_RUN",
+    "supersedes_failed_path_attempt": "legacy_square_control.py, no predictions produced",
+    "source": "teacher_review_phase_T2C/03_scripts/baseline_adapters/common.py:to_square_518_bgr and dav2_adapter.py:_forward_square",
+    "input": "original BGR -> OpenCV INTER_AREA 518 square -> RGB float32 -> ImageNet mean/std",
+    "reference_readouts": [
+      "original FP32 GT grid",
+      "V41 regenerated FP16 GT plus saved validity mask"
+    ],
+    "cache_role": "V41 regenerated cache, not the original T2C evaluation artifact",
+    "cache_hashes": {
+      "gt.npy": "023415fba3fe4f26837499398321330db082359d003bbbe79c4324cd2d580ad4",
+      "valid.npy": "e390ed1edae8973778f77b35d6be4636541f8a7214d53044dcd9e18e5ae08433",
+      "rows.csv": "230b9b294a9f2e3403e7aa1bae66b5fc4bb4af49612d017a354e812e68694041"
+    },
+    "cache_path": "$ORIGINAL_RESEARCH_ROOT/revision_v41/citrus_test_cache_locked_20261030_v41",
+    "backend": "PyTorch FP32, TF32 disabled",
+    "weights": "9203e538d35255c90dda4b7fedb47ff33fe725497bcca3b1e53b3a65ee63f0cb",
+    "test_scale_alignment": false,
+    "samples": 750,
+    "runner_sha256": "76954a8b5379eec06b45c00c7616c3a0947ce0a7de411d574937ce63799fe45f",
+    "locked": "2026-11-03T05:34:36.698703+00:00"
+  },
+  "load": {
+    "checkpoint": "$ORIGINAL_RESEARCH_ROOT/weights/dav2/depth_anything_v2_metric_vkitti_vits.pth",
+    "sha256": "9203e538d35255c90dda4b7fedb47ff33fe725497bcca3b1e53b3a65ee63f0cb",
+    "missing": [],
+    "unexpected": [],
+    "max_depth": 80,
+    "params_total_with_aux": 24785089,
+    "params_depth_only": 24785089
+  },
+  "common_reference": {
+    "images": 750,
+    "valid_pixels": 89648722,
+    "AbsRel": 7.794759424131727,
+    "RMSE": 15.557540551020889,
+    "MAE": 14.374410994842739,
+    "delta1": 0.0108366854354042,
+    "uncapped_AbsRel": 8.200717050568159,
+    "uncapped_RMSE": 20.064448354234383,
+    "uncapped_MAE": 16.74969916900415,
+    "uncapped_delta1": 0.0108366854354042,
+    "cap_hit_fraction": 0.1555334274592336,
+    "invalid_predictions": 0,
+    "mean_image_median_raw_pred_gt_ratio": 8.075133465159407,
+    "mean_image_median_raw_log_ratio": 2.017036788397378,
+    "raw_prediction_max": 79.85213470458984
+  },
+  "historical_reference": {
+    "images": 750,
+    "valid_pixels": 89648722,
+    "AbsRel": 7.794760114234958,
+    "RMSE": 15.557540891852893,
+    "MAE": 14.374411250137808,
+    "delta1": 0.010836930837675523,
+    "uncapped_AbsRel": 8.200717817155516,
+    "uncapped_RMSE": 20.0644488372607,
+    "uncapped_MAE": 16.749699424299237,
+    "uncapped_delta1": 0.010836930837675523,
+    "cap_hit_fraction": 0.1555334274592336,
+    "invalid_predictions": 0,
+    "mean_image_median_raw_pred_gt_ratio": 8.075130000902705,
+    "mean_image_median_raw_log_ratio": 2.0170371402808565,
+    "raw_prediction_max": 79.85213470458984
+  },
+  "finished": "2026-11-03T05:35:15.554191+00:00"
+}

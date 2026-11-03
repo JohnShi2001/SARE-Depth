@@ -1,0 +1,171 @@
+[
+  {
+    "role": "Stage-I frozen base",
+    "file": "weights/stage1_base.pth",
+    "sha256": "11711dc7f4ef52b24b4c52a01c4d168b76f41a7a22b463579ede31788531e8e1",
+    "bytes": 99705708,
+    "original_sha256": "5119de576c38ee28f91a4eed68b6ef482ea884573ff110e9b94a42975badbac8",
+    "tensor_count": 245,
+    "tensor_values_preserved": true,
+    "conversion": "Tensor-only state dictionary; removed original non-tensor container metadata.",
+    "url": "https://github.com/JohnShi2001/SARE-Depth/releases/download/r2-20261103/stage1_base.pth"
+  },
+  {
+    "role": "CitrusFarm DP-RHR anchor adapter",
+    "file": "weights/dprhr_anchor.pth",
+    "sha256": "d32b9d1a7d7662bebabd8610a5a916c5448e34282403f832b9d9e08cb00d34fc",
+    "bytes": 376706,
+    "original_sha256": "9698ed7159e03ea9b0b0422381ddc0299f166fa4f98e4882ac376a426fd21f31",
+    "tensor_count": 12,
+    "tensor_values_preserved": true,
+    "conversion": "Tensor-only state dictionary; removed original non-tensor container metadata.",
+    "url": "https://github.com/JohnShi2001/SARE-Depth/releases/download/r2-20261103/dprhr_anchor.pth"
+  },
+  {
+    "role": "Historical CitrusFarm RE 20260711",
+    "file": "weights/re_historical_20260711.pth",
+    "sha256": "c3f2d5ad4714ca49ae5f26d48ae3aef4dc997570025a451264c9752ab9ceebd9",
+    "bytes": 16210,
+    "original_sha256": "fefb2b49289b3564a557033ba1cb7f226be611c81a48fdee481819656d865d9b",
+    "tensor_count": 16,
+    "tensor_values_preserved": true,
+    "conversion": "Tensor-only state dictionary; removed original non-tensor container metadata.",
+    "url": "https://github.com/JohnShi2001/SARE-Depth/releases/download/r2-20261103/re_historical_20260711.pth"
+  },
+  {
+    "role": "Historical CitrusFarm RE 20260712",
+    "file": "weights/re_historical_20260712.pth",
+    "sha256": "7be9fee38448c88a1c8b235b40d2d38c2ec131e5fc3419312d5d154fd889e40e",
+    "bytes": 16210,
+    "original_sha256": "9a32611653c3eff71b0bbb99ef10fa6338585152d59e59806be439994ef45b46",
+    "tensor_count": 16,
+    "tensor_values_preserved": true,
+    "conversion": "Tensor-only state dictionary; removed original non-tensor container metadata.",
+    "url": "https://github.com/JohnShi2001/SARE-Depth/releases/download/r2-20261103/re_historical_20260712.pth"
+  },
+  {
+    "role": "Historical CitrusFarm RE 20260713",
+    "file": "weights/re_historical_20260713.pth",
+    "sha256": "82e717fbdd9b004bff38db45a57c918e2882945fd94717b2dfe7bd413e58ddd0",
+    "bytes": 16210,
+    "original_sha256": "ce59112120bd6fb2ead7fd14a5fa5da19fc4547b9b172f73d66363ff17e3010d",
+    "tensor_count": 16,
+    "tensor_values_preserved": true,
+    "conversion": "Tensor-only state dictionary; removed original non-tensor container metadata.",
+    "url": "https://github.com/JohnShi2001/SARE-Depth/releases/download/r2-20261103/re_historical_20260713.pth"
+  },
+  {
+    "role": "Complete original DPTHead fine-tuning",
+    "seed": 20260711,
+    "file": "weights/head_only_20260711.pth",
+    "sha256": "45b9e5d1e52e79bfdb86670e91f4a610449e2384dea91dc20f58a9094b18e88f",
+    "bytes": 10939906,
+    "original_sha256": "e3901805277e8bbd68ced253fc547496f443a3ae68cc7b91483ba548300c869d",
+    "selected_epoch": 14,
+    "validation": {
+      "images": 750,
+      "valid_pixels": 84139578,
+      "AbsRel": 0.1713114668395604,
+      "RMSE": 1.583896208633577,
+      "MAE": 0.7071797128371572,
+      "delta1": 0.7871881767697956,
+      "uncapped_AbsRel": 0.1713114668395604,
+      "uncapped_RMSE": 1.583896208633577,
+      "uncapped_MAE": 0.7071797128371572,
+      "uncapped_delta1": 0.7871881767697956,
+      "cap_hit_fraction": 0.0,
+      "invalid_predictions": 0,
+      "mean_image_median_raw_pred_gt_ratio": 1.0162456483362885,
+      "mean_image_median_raw_log_ratio": 0.013180121769584465,
+      "raw_prediction_max": 23.011560440063477,
+      "seconds": 29.372153908014297,
+      "mode": "square",
+      "split": "val",
+      "input_shapes": [
+        [
+          518,
+          518
+        ]
+      ]
+    },
+    "tensor_values_preserved": true,
+    "initial_original_base_sha256": "5119de576c38ee28f91a4eed68b6ef482ea884573ff110e9b94a42975badbac8",
+    "url": "https://github.com/JohnShi2001/SARE-Depth/releases/download/r2-20261103/head_only_20260711.pth"
+  },
+  {
+    "role": "Complete original DPTHead fine-tuning",
+    "seed": 20260712,
+    "file": "weights/head_only_20260712.pth",
+    "sha256": "2d6b7408a254ec4b5ea49754bf4db5da4e639bcea90e86c55087665b7cbfe467",
+    "bytes": 10939906,
+    "original_sha256": "2ddea8bacc259d0789b9b0e4acb15bd58a04ba9fba97d1873991520d7ef4d5a5",
+    "selected_epoch": 26,
+    "validation": {
+      "images": 750,
+      "valid_pixels": 84139578,
+      "AbsRel": 0.17004797955455395,
+      "RMSE": 1.6307841709944415,
+      "MAE": 0.7430674343045707,
+      "delta1": 0.7615936580998778,
+      "uncapped_AbsRel": 0.17004797955455395,
+      "uncapped_RMSE": 1.6307841709944415,
+      "uncapped_MAE": 0.7430674343045707,
+      "uncapped_delta1": 0.7615936580998778,
+      "cap_hit_fraction": 0.0,
+      "invalid_predictions": 0,
+      "mean_image_median_raw_pred_gt_ratio": 0.9783585909586054,
+      "mean_image_median_raw_log_ratio": -0.02533798156951469,
+      "raw_prediction_max": 27.20777702331543,
+      "seconds": 29.18026040197583,
+      "mode": "square",
+      "split": "val",
+      "input_shapes": [
+        [
+          518,
+          518
+        ]
+      ]
+    },
+    "tensor_values_preserved": true,
+    "initial_original_base_sha256": "5119de576c38ee28f91a4eed68b6ef482ea884573ff110e9b94a42975badbac8",
+    "url": "https://github.com/JohnShi2001/SARE-Depth/releases/download/r2-20261103/head_only_20260712.pth"
+  },
+  {
+    "role": "Complete original DPTHead fine-tuning",
+    "seed": 20260713,
+    "file": "weights/head_only_20260713.pth",
+    "sha256": "14115373197296ff3b822e2b5beea687f5dbe731a8ebeeb06c3f0f813e15abd5",
+    "bytes": 10939906,
+    "original_sha256": "ecd04494593b28c34fcd555143ce5f550b03855898daa1349f83d68a7260130b",
+    "selected_epoch": 27,
+    "validation": {
+      "images": 750,
+      "valid_pixels": 84139578,
+      "AbsRel": 0.16820214265453845,
+      "RMSE": 1.6486449628555342,
+      "MAE": 0.7612915081455813,
+      "delta1": 0.7465172216575653,
+      "uncapped_AbsRel": 0.16820214265453845,
+      "uncapped_RMSE": 1.6486449628555342,
+      "uncapped_MAE": 0.7612915081455813,
+      "uncapped_delta1": 0.7465172216575653,
+      "cap_hit_fraction": 0.0,
+      "invalid_predictions": 0,
+      "mean_image_median_raw_pred_gt_ratio": 0.949956192410238,
+      "mean_image_median_raw_log_ratio": -0.05474603176792353,
+      "raw_prediction_max": 23.529048919677734,
+      "seconds": 29.16408560896525,
+      "mode": "square",
+      "split": "val",
+      "input_shapes": [
+        [
+          518,
+          518
+        ]
+      ]
+    },
+    "tensor_values_preserved": true,
+    "initial_original_base_sha256": "5119de576c38ee28f91a4eed68b6ef482ea884573ff110e9b94a42975badbac8",
+    "url": "https://github.com/JohnShi2001/SARE-Depth/releases/download/r2-20261103/head_only_20260713.pth"
+  }
+]
